@@ -53,10 +53,8 @@ body {
 
 /*Хедер*/
 .page-header {
-
   padding-top: 0px;
   padding-bottom: 0px;
-
 }
 
 .header-item {
@@ -113,7 +111,7 @@ body {
 }
 
 .current::after {
-  content: " ";
+  content: ' ';
   display: block;
   margin: 0px;
   padding: 0px;
@@ -123,7 +121,6 @@ body {
   border: 2px solid var(--accent-color);
 
   border-radius: 2px;
-
 }
 
 .site-nav .link {
@@ -138,6 +135,7 @@ body {
   line-height: 1.14;
 
   text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav .link:hover,
@@ -170,14 +168,14 @@ body {
   letter-spacing: 0.02em;
 
   text-decoration: none;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* fill="var(--color3, #757575)" */
 
-
-
-.connect>.contacts-link:hover,
-.connect>.contacts-link:focus {
+.connect > .contacts-link:hover,
+.connect > .contacts-link:focus {
   color: var(--accent-color);
 }
 
@@ -204,9 +202,11 @@ body {
   max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
-  background-image: linear-gradient(to right,
+  background-image: linear-gradient(
+      to right,
       rgba(47, 48, 58, 0.8),
-      rgba(47, 48, 58, 0.8)),
+      rgba(47, 48, 58, 0.8)
+    ),
     url('../images/hero/hero.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -267,7 +267,9 @@ body {
   font-size: 14px;
   line-height: 1.71;
 }
-
+.features-item {
+  perspective: 600px;
+}
 .features-item:not(:last-child) {
   margin-right: 30px;
 }
@@ -283,6 +285,9 @@ body {
 
   background-color: #f5f4fa;
   text-align: center;
+  transform: rotateY(0deg);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 500ms,
+    background-color 700ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .features-icon {
@@ -292,9 +297,10 @@ body {
 
 .features-image:hover {
   background-color: var(--accent-color);
+  transform: rotateY(45deg);
 }
 
-.features-image>.icon {
+.features-image > .icon {
   padding: 25px 100px;
 }
 
@@ -308,6 +314,10 @@ body {
 }
 
 .product .product-title {
+  position: absolute;
+  width: 100%;
+
+  bottom: 0px;
   margin: 0px;
   padding-top: 27px;
   padding-bottom: 27px;
@@ -324,6 +334,7 @@ body {
 
 .product-item {
   display: block;
+  position: relative;
 }
 
 .product-icon {
@@ -392,22 +403,27 @@ body {
   text-decoration: none;
   width: 44px;
   height: 44px;
-  color: #AFB1B8;
+  color: #afb1b8;
   border-radius: 50%;
 
   justify-content: center;
   align-items: center;
+
+  transform: scale(1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 550ms cubic-bezier(0.4, 0, 0.2, 1) 500ms;
 }
 
 .img-icon {
-
   fill: currentColor;
 }
 
 .social-icon:hover,
 .social-icon:focus {
-  color: #FFFFFF;
+  color: #ffffff;
   background-color: var(--accent-color);
+  transform: scale(0.85);
 }
 
 /*Клиенты постоянные*/
@@ -421,25 +437,28 @@ body {
 
 .partners {
   display: flex;
-  border: 1px solid #AFB1B8;
+  border: 1px solid #afb1b8;
   border-radius: 4px;
   width: 170px;
   height: 90px;
 
-  color: #AFB1B8;
+  color: #afb1b8;
 
   justify-content: center;
   align-items: center;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-partners {
   fill: currentColor;
 }
 
-.partners:hover {
+.partners:hover,
+.partners:focus {
   border-color: var(--accent-color);
   color: var(--accent-color);
-
 }
 
 /*Футер*/
@@ -463,11 +482,11 @@ body {
   flex-direction: column;
 }
 
-.location>.logo {
+.location > .logo {
   margin-bottom: 10px;
 }
 
-.addres>.addres-text {
+.addres > .addres-text {
   display: block;
   margin-top: 0px;
   margin-bottom: 9px;
@@ -479,7 +498,7 @@ body {
   text-decoration: none;
 }
 
-.addres>.contacts-link {
+.addres > .contacts-link {
   margin-top: 0px;
   margin-bottom: 9px;
 
@@ -487,12 +506,11 @@ body {
   letter-spacing: 0.03em;
 }
 
-.addres>.tel {
+.addres > .tel {
   margin-bottom: 0px;
 }
 
-.addres>.contacts-link:hover,
-  {
+.addres > .contacts-link:hover {
   color: var(--accent-color);
 }
 
@@ -528,26 +546,24 @@ body {
   width: 44px;
   height: 44px;
 
-  color: #FFFFFF;
+  color: #ffffff;
   background-color: rgba(255, 255, 255, 0.1);
   text-decoration: none;
 
-
   justify-content: center;
   align-items: center;
-
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-footer {
   fill: currentColor;
 }
 
-
-.social-footer-item>.social-link:hover {
+.social-footer-item > .social-link:hover {
   background-color: var(--accent-color);
 }
 
-.social-footer>.social-footer-item:not(:last-child) {
+.social-footer > .social-footer-item:not(:last-child) {
   margin-right: 10px;
 }
 
@@ -562,16 +578,15 @@ body {
   text-transform: uppercase;
 }
 
-
-
 .subscribe-link {
-  display: flex;
+  display: block;
   margin: 0px;
   padding: 0px;
 }
 
-.send {
-  display: block;
+.img-send {
+  display: inline-block;
+  fill: #fff;
 }
 
 .copiright {
@@ -670,21 +685,56 @@ body {
   text-decoration: none;
 }
 
+.card {
+  position: relative;
+  overflow: hidden;
+}
+.text-card {
+  position: absolute;
+  top: 100%;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0px;
+  padding-top: 63px;
+  padding-bottom: 63px;
+  padding-left: 24px;
+  padding-right: 24px;
+  background: rgba(33, 150, 243, 0.9);
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 28px;
+  /* or 156% */
+
+  letter-spacing: 0.03em;
+
+  color: white;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+.item-tech:hover .text-card {
+  transform: translateY(-294px);
+}
+
+.card-panel {
+  overflow: hidden;
+}
 .item-tech:hover {
-  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16),
-    0px 4px 4px rgba(0, 0, 0, 0.06),
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06),
     0px 1px 1px rgba(0, 0, 0, 0.12);
 }
 
 .tech-foto {
   display: block;
-  margin-bottom: 20px;
-  width="";
-  height="";
+  position: relative;
 }
 
 .tech-title {
-  margin-top: 0px;
+  margin-top: 20px;
   margin-bottom: 4px;
   padding-left: 24px;
   padding-right: 24px;
